@@ -7,6 +7,20 @@ NixOS comes with a simple, stateful firewall that blocks incoming connections an
 ```
 networking.firewall.enable = true;
 ```
+In case you want to open ports occasionally and do it with comfort and have no open ports as a default, you can add the following lines:
+```
+  networking.firewall.allowedTCPPorts = [];
+  networking.firewall.allowedUDPPorts = [];
+ ```
+ 
+ 
+# Activating the outbound firewall
+In case you worry about things calling home, you could use an outbound firewall.
+Opensnich is a program capable of filtering outgoing packets.
+To install and configure Opensnitch on your system, you can paste the following code into your system configuration.
+```
+#  services.opensnitch.enable = true;
+```
 
 
 ## Sandboxing Applications by running them inside a VM
